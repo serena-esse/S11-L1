@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 // useSelector è l'hook "in LETTURA"
 // con i componenti a classe si può usare una funzione chiamata mapStateToProps
 
-const CartIndicator = () => {
+const FavouritesIndicator = () => {
   // R D H
   // 1) utilizziamo gli hooks solamente nei componenti a funzione
   // 2) utilizziamo gli hooks al di fuori di if/else, loops, funzioni etc.
@@ -28,4 +28,4 @@ const CartIndicator = () => {
   );
 };
 
-export default CartIndicator;
+export default FavouritesIndicator;

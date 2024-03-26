@@ -1,6 +1,7 @@
 import { Col, Row, Button } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
+import { DELETE_FROM_FAVOURITES } from "../redux/actions";
 
 const Cart = () => {
   // qui dentro ci vanno gli hooks!
@@ -18,20 +19,24 @@ const Cart = () => {
         <ul style={{ listStyle: "none" }}>
           {favElem.map((data, i) => (
             <li key={i} className="my-4">
-              <Button
-                variant="danger"
-                onClick={() => {
-                  // da qui dentro dovremmo eliminare il libro selezionato dal carrello!
-                  dispatch({
-                    type: "DELETE_FROM_FAVOURITES",
-                    payload: i,
-                  });
-                }}
-              >
-                <FaTrash />
-              </Button>
-
-              {data.company_name}
+              <Row>
+                <Col>{data.company_name}</Col>
+                <Col>{data.title}</Col>
+                <Col>
+                  <Button
+                    variant="danger"
+                    onClick={() => {
+                      // da qui dentro dovremmo eliminare il libro selezionato dal carrello!
+                      dispatch({
+                        type: DELETE_FROM_FAVOURITES,
+                        payload: i,
+                      });
+                    }}
+                  >
+                    <FaTrash />
+                  </Button>
+                </Col>
+              </Row>
             </li>
           ))}
         </ul>

@@ -3,6 +3,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { ADD_TO_FAVOURITES, addToFavouritesAction } from "../redux/actions";
 
 const CompanySearchResults = () => {
   const dispatch = useDispatch();
@@ -29,10 +30,7 @@ const CompanySearchResults = () => {
   };
 
   const addToFavorites = (jobData) => {
-    dispatch({
-      type: "ADD_TO_FAVOURITES",
-      payload: jobData,
-    });
+    dispatch(addToFavouritesAction());
   };
 
   return (

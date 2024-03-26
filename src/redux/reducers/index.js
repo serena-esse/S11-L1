@@ -1,3 +1,6 @@
+import { ADD_TO_FAVOURITES } from "../actions";
+import { DELETE_FROM_FAVOURITES } from "../actions";
+
 const initialState = {
   // è necessario pensare e costruire lo STATO INIZIALE per Redux
   // lo stato iniziale, come quello di un componente React, dovrà già ospitare tutte le proprietà
@@ -23,7 +26,7 @@ const mainReducer = function (state = initialState, action) {
     // ora che abbiamo cominciato a "dispatchare" le azioni, è necessario ISTRUIRE il nostro reducer
     // sul cosa fare quando le intercetta!
 
-    case "ADD_TO_FAVOURITES":
+    case ADD_TO_FAVOURITES:
       return {
         // OGNI case del reducer deve ritornare un oggetto -> IL NUOVO STATO DELL'APPLICATIVO
         ...state, // ricopiamo dentro TUTTE le coppie chiave/valore di state, per evitare di perdere altre proprietà
@@ -36,7 +39,7 @@ const mainReducer = function (state = initialState, action) {
         },
       };
 
-    case "DELETE_FROM_FAVOURITES":
+    case DELETE_FROM_FAVOURITES:
       return {
         ...state,
         favourites: {
